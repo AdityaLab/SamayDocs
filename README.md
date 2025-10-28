@@ -17,34 +17,6 @@ The documentation includes:
 - **API Reference** - Auto-generated API documentation for models, datasets, and metrics
 - **Examples** - Complete working examples for forecasting, anomaly detection, classification, and more
 
-## Building the Documentation
-
-### Prerequisites
-
-```bash
-pip install -r requirements.txt
-```
-
-### Local Preview
-
-```bash
-mkdocs serve
-```
-
-Visit `http://127.0.0.1:8000/` to view the documentation locally.
-
-### Build Static Site
-
-```bash
-mkdocs build
-```
-
-### Deploy to GitHub Pages
-
-```bash
-mkdocs gh-deploy
-```
-
 ## Documentation Features
 
 - Material theme with custom styling
@@ -87,4 +59,3 @@ The main Samay library repository: [github.com/AdityaLab/Samay](https://github.c
 ## License
 
 This documentation follows the same license as the Samay project.
-
