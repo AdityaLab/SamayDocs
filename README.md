@@ -47,6 +47,23 @@ uv run mkdocs build
 
 The built site will be in the `site/` directory.
 
+### Deploying to GitHub Pages
+
+To deploy the documentation to the `gh-pages` branch (which makes it available at the GitHub Pages URL):
+
+```bash
+uv run mkdocs gh-deploy
+```
+
+This command will:
+1. Build the documentation site
+2. Commit the built site to the `gh-pages` branch
+3. Push the changes to GitHub
+
+After deployment, the documentation will be available at the configured GitHub Pages URL (typically `https://<username>.github.io/<repository-name>/`).
+
+**Note:** Ensure you have push access to the repository and that GitHub Pages is enabled in your repository settings.
+
 ### Making Changes
 
 This repository includes the Samay library as a submodule, so changes may involve updating both repositories. Follow these guidelines:
