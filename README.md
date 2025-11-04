@@ -49,19 +49,99 @@ The built site will be in the `site/` directory.
 
 ### Making Changes
 
-To contribute to the documentation:
+This repository includes the Samay library as a submodule, so changes may involve updating both repositories. Follow these guidelines:
+
+#### Updating the Samay Submodule
+
+If you've made changes to the Samay library or need to pull the latest changes:
+
+```bash
+# Navigate to the submodule directory
+cd Samay
+
+# Pull latest changes from the Samay repository
+git pull origin main  # or the appropriate branch
+
+# Return to the docs repository
+cd ..
+```
+
+Or update the submodule from the root directory:
+
+```bash
+git submodule update --remote Samay
+```
+
+#### Working with Documentation Changes
 
 1. **Edit documentation files**: Modify the Markdown files in the `docs/` directory
-2. **Update API documentation**: API docs are auto-generated from source code in `Samay/src/samay/`
+2. **Update API documentation**: API docs are auto-generated from source code in `Samay/src/samay/`. If you modify Samay source code, the API docs will automatically reflect those changes.
 3. **Preview changes**: Use `uv run mkdocs serve` to see your changes in real-time
 4. **Test the build**: Run `uv run mkdocs build` to ensure everything builds correctly
 
-Key files to know:
+#### Committing Changes
+
+When making changes that affect both repositories:
+
+**If you only modified documentation files:**
+```bash
+# In the SamayDocs repository root
+git add docs/
+git commit -m "Update documentation"
+git push
+```
+
+**If you modified both Samay and documentation:**
+
+1. **First, commit and push Samay changes:**
+   ```bash
+   cd Samay
+   git add .
+   git commit -m "Update Samay code"
+   git push
+   cd ..
+   ```
+
+2. **Then, update the submodule reference in SamayDocs:**
+   ```bash
+   git add Samay
+   git commit -m "Update Samay submodule to latest version"
+   git push
+   ```
+
+**If you only need to update the submodule to point to a new commit:**
+```bash
+# After pulling latest changes in Samay submodule
+git add Samay
+git commit -m "Update Samay submodule"
+git push
+```
+
+#### Pulling Latest Changes
+
+To get the latest changes from both repositories:
+
+```bash
+# Pull SamayDocs changes
+git pull
+
+# Update submodule to latest commit
+git submodule update --init --recursive
+
+# Or pull latest changes in the submodule
+cd Samay
+git pull
+cd ..
+```
+
+#### Key Files to Know
+
 - `docs/index.md` - Homepage
 - `docs/getting-started.md` - Installation guide
 - `docs/models/` - Model-specific documentation
-- `docs/api/` - API reference pages
+- `docs/api/` - API reference pages (auto-generated from `Samay/src/samay/`)
 - `mkdocs.yml` - Configuration file
+- `Samay/src/samay/` - Samay source code (submodule)
 
 ## Documentation Structure
 
