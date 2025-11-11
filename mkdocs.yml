@@ -38,6 +38,7 @@ plugins:
             docstring_style: google
             merge_init_into_class: true
             show_signature_annotations: true
+            show_signature: false
 
 markdown_extensions:
   - pymdownx.highlight:
